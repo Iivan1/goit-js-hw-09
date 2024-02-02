@@ -18,6 +18,8 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const data = loadFromLs(storagKey) || {};
   console.log(data);
+  form.reset();
+  localStorage.removeItem(storagKey);
 });
 
 function saveToLs(key, value) {
