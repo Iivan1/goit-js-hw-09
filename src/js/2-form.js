@@ -4,8 +4,8 @@ const form = document.querySelector('.feedback-form');
 const textarea = form.querySelector('textarea');
 
 form.addEventListener('input', e => {
-  const userName = form.elements.email.value;
-  const userMessage = form.elements.message.value;
+  const userName = form.elements.email.value.trim();
+  const userMessage = form.elements.message.value.trim();
 
   const data = {
     name: userName,
@@ -41,7 +41,7 @@ function loadFromLs(key) {
 function restoreData() {
   const data = loadFromLs(storagKey) || {};
 
-  form.elements.email.value = data.name || '';
-  form.elements.message.value = data.message || '';
+  form.elements.email.value = (data.name || '').trim();
+  form.elements.message.value = (data.message || '').trim();
 }
 restoreData();
