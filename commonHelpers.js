@@ -5,5 +5,5 @@ import"./assets/modulepreload-polyfill-ec808ebb.js";import{S as a}from"./assets/
     alt="${p.description}" />
     </a>
     </li>`).join(`
-`)}const e=t();i.insertAdjacentHTML("afterbegin",e);new a(".gallery a");new a(".gallery a",{captionDelay:250,captionsData:"alt"});
+`)}const e=t();i.insertAdjacentHTML("afterbegin",e);new a(".gallery a",{captionDelay:250,captionsData:"alt"});
 //# sourceMappingURL=commonHelpers.js.map
