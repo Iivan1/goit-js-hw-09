@@ -8,7 +8,7 @@ form.addEventListener('input', e => {
   const userMessage = form.elements.message.value.trim();
 
   const data = {
-    name: userName,
+    email: userName,
     message: userMessage,
   };
   saveToLs(storagKey, data);
@@ -16,7 +16,16 @@ form.addEventListener('input', e => {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const data = loadFromLs(storagKey) || {};
+
+  const userName = form.elements.email.value.trim();
+  const userMessage = form.elements.message.value.trim();
+
+  if (userName === '' || userMessage === '') {
+    alert('Заповніть будь ласка форму');
+    return;
+  }
+
+  const data = loadFromLs(storagKey);
   console.log(data);
   form.reset();
   localStorage.removeItem(storagKey);
@@ -41,7 +50,7 @@ function loadFromLs(key) {
 function restoreData() {
   const data = loadFromLs(storagKey) || {};
 
-  form.elements.email.value = (data.name || '').trim();
+  form.elements.email.value = (data.email || '').trim();
   form.elements.message.value = (data.message || '').trim();
 }
 restoreData();
